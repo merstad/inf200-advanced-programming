@@ -1,0 +1,4 @@
+Name;Age;Phone number;Birthday
+Per;24;12345678;23.08.1997
+Kari;23;23456789;12.12.1997
+Ole;;23456789;
