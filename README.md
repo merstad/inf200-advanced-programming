@@ -13,7 +13,7 @@ You only need to perform the following steps once.
 1. Use `cd` to navigate to the directory in which you keep your INF200 materials.
 1. Run
 ```sh
-git clone git@gitlab.com:nmbu.no/emner/inf200/h2021/inf200-course-materials.git
+git clone https://gitlab.com/nmbu.no/emner/inf200/h2021/inf200-course-materials.git
 ```
 
 You should now have a directory `inf200-course-materials` directory containing all currently available materials.
