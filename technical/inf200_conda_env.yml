@@ -10,7 +10,6 @@ dependencies:
   - ffmpeg
   - flake8
   - filelock
-  - git
   - ipython
   - jupyter
   - jupyterlab
