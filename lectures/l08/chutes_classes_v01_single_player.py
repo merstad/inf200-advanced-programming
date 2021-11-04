@@ -1,3 +1,11 @@
+"""
+Chutes and ladders implementation using classes throughout.
+
+See recording of INF200 lecture 1 Nov 2021 for details.
+"""
+
+__author__ = "Hans Ekkehard Plesser / NMBU"
+
 import random
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,15 +42,13 @@ class Player:
 
 
 class Game:
-    def __init__(self, number_of_players):
+    def __init__(self):
         self.board = Board()
-        self.n_players = number_of_players
 
     def play(self):
-        players = [Player(self.board) for _ in range(self.n_players)]
-        while not any(self.board.goal_reached(player.position) for player in players):
-            for player in players:
-                player.move()
+        player = Player(self.board)
+        while not self.board.goal_reached(player.position):
+            player.move()
         return player.steps
 
 
@@ -60,7 +66,7 @@ class Experiment:
 
 if __name__ == "__main__":
 
-    for seed in [123455, 324342, 21213, 234234234,  234234,  2342232, 323]:
+    for seed in [123455, 324342, 21213, 234234234,  234234,  2342232]:
         test = Experiment(seed, 100)
         test.run()
 
@@ -71,6 +77,11 @@ if __name__ == "__main__":
         print()
 
         hv, hb = np.histogram(test.results, bins=np.arange(0, max(test.results)))
-        plt.step(hb[:-1], hv)
+        plt.step(hb[:-1], hv, label=test.seed)
+
+    plt.legend()
+    plt.title('Game duration distribution for different seeds')
+    plt.xlabel('Number of steps to goal')
+    plt.ylabel('Number of games')
 
     plt.show()
