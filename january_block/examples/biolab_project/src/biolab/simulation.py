@@ -71,10 +71,10 @@ class Sim:
 
             if ret or disp_this_cycle:
                 n_a, n_b = self.lab.bacteria_counts()
-            if ret:
-                data[cycle + 1, 1:] = n_a, n_b
-            if disp_this_cycle:
-                print(n_a, n_b)
+                if ret:
+                    data[cycle + 1, 1:] = n_a, n_b
+                if disp_this_cycle:
+                    print(n_a, n_b)
 
         if disp:
             print('End: ', self.lab.bacteria_counts())

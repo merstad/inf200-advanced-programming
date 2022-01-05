@@ -18,6 +18,7 @@ autoclass_content = 'both'
 # -- Project information -----------------------------------------------------
 
 project = 'BioLab'
+# noinspection PyShadowingBuiltins
 copyright = '2021, Hans Ekkehard Plesser'
 author = 'Hans Ekkehard Plesser'
 release = '0.1'

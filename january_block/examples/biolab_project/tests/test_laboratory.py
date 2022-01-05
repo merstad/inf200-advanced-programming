@@ -14,8 +14,8 @@ def test_lab_create():
     n_dish = 5
     n_a = 10
     n_b = 20
-    l = Lab(n_dish, n_a, n_b)
-    tot_a, tot_b = l.bacteria_counts()
+    lab = Lab(n_dish, n_a, n_b)
+    tot_a, tot_b = lab.bacteria_counts()
 
     assert tot_a == n_dish * n_a and tot_b == n_dish * n_b
 
@@ -26,10 +26,11 @@ def test_dish_aging_call_count(mocker):
     n_dish = 5
     n_a = 10
     n_b = 20
-    l = Lab(n_dish, n_a, n_b)
+    lab = Lab(n_dish, n_a, n_b)
 
     mocker.spy(Dish, "aging")
-    l.cycle()
+    lab.cycle()
+    # noinspection PyUnresolvedReferences
     assert Dish.aging.call_count == n_dish
 
 
@@ -50,8 +51,9 @@ def test_bacteria_ages_call_count_poor_example(mocker):
     n_dish = 5
     n_a = 10
     n_b = 20
-    l = Lab(n_dish, n_a, n_b)
+    lab = Lab(n_dish, n_a, n_b)
 
     mocker.spy(Bacteria, "ages")
-    l.cycle()
+    lab.cycle()
+    # noinspection PyUnresolvedReferences
     assert Bacteria.ages.call_count == n_dish * (n_a + n_b)

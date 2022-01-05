@@ -1,6 +1,6 @@
-'''
+"""
 Implements a bacteria model.
-'''
+"""
 
 import random
 

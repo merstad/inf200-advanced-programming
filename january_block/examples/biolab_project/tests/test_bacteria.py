@@ -118,14 +118,15 @@ def test_bact_death_z_test(set_params):
     """
 
     random.seed(SEED)
-    N = 100
+    num = 100
     p = Bacteria.get_params()['p_death']  # obtain parameter set by fixture
 
     b = Bacteria()
-    n = sum(b.dies() for _ in range(N))  # True == 1, False == 0
+    n = sum(b.dies() for _ in range(num))  # True == 1, False == 0
 
-    mean = N * p
-    var = N * p * (1 - p)
+    mean = num * p
+    var = num * p * (1 - p)
+    # noinspection PyPep8Naming
     Z = (n - mean) / math.sqrt(var)
     phi = 2 * stats.norm.cdf(-abs(Z))
     assert phi > ALPHA
