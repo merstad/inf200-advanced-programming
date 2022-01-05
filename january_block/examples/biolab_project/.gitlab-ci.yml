@@ -37,5 +37,5 @@ lint_and_test:
     - flake8 src tests    # Run PEP8 checks (static check, linting)
     - tox                 # Run tests with tox
   rules:
-    # Only run tests when we commit to master branch (to reduce load on GitLab)
+    # Only run tests when we commit/merge to main branch (to reduce load on GitLab)
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
