@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to RandVis's documentation!
-===================================
+Welcome to RandVis' documentation!
+==================================
 
 RandomVisualization is a small Python package developed solely for pedagogical purposes.
 The key points illustrated are how to
