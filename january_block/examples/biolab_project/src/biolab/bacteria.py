@@ -87,3 +87,5 @@ class Bacteria:
         """
 
         return random.random() < self.p_divide
+
+

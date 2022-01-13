@@ -5,6 +5,7 @@ __author__ = 'Hans E Plesser'
 __email__ = 'hans.ekkehard.plesser@nmbu.no'
 
 import pytest
+import numpy as np
 from scipy.stats import binom_test
 from biolab.dish import Dish
 from biolab.bacteria import Bacteria
@@ -35,6 +36,16 @@ class TestAgingCalls:
 
         # noinspection PyUnresolvedReferences
         assert Bacteria.ages.call_count == n_a + n_b
+
+    def test_dish_ages_blackbox(self):
+        n_a, n_b = 10, 20
+        d = Dish(n_a, n_b)
+        d.aging()
+        a_ages = d.get_ages_a()
+        b_ages = d.get_ages_b()
+
+        assert all(np.array(a_ages) == 1) and all(np.array(b_ages) == 1)
+
 
     def test_dish_ages_callers(self, mocker):
         # mocker.spy wraps Bacteria.ages() so that we can get

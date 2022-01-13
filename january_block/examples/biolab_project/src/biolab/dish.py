@@ -33,6 +33,16 @@ class Dish:
 
         return len(self.b_pop)
 
+    def get_ages_a(self):
+        """Return ages of A bacteria in dish."""
+
+        return [bact.age for bact in self.a_pop]
+
+    def get_ages_b(self):
+        """Return ages of B bacteria in dish."""
+
+        return [bact.age for bact in self.b_pop]
+
     def aging(self):
         """Age all bacteria in dish by one cycle."""
 
