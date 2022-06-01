@@ -94,6 +94,7 @@ def test_bact_certain_survival(set_params):
         assert not b.dies()
 
 
+# noinspection PyPep8Naming
 @pytest.mark.parametrize('set_params', [{'p_death': 0.4}], indirect=True)
 def test_bact_death_z_test(set_params):
     """
@@ -118,14 +119,14 @@ def test_bact_death_z_test(set_params):
     """
 
     random.seed(SEED)
-    N = 100
+    n = 100
     p = Bacteria.get_params()['p_death']  # obtain parameter set by fixture
 
     b = Bacteria()
-    n = sum(b.dies() for _ in range(N))  # True == 1, False == 0
+    n = sum(b.dies() for _ in range(n))  # True == 1, False == 0
 
-    mean = N * p
-    var = N * p * (1 - p)
+    mean = n * p
+    var = n * p * (1 - p)
     Z = (n - mean) / math.sqrt(var)
     phi = 2 * stats.norm.cdf(-abs(Z))
     assert phi > ALPHA

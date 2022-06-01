@@ -69,6 +69,7 @@ class Sim:
             self.lab.cycle()
             disp_this_cycle = disp and cycle % report_cycles == 0
 
+            n_a, n_b = None, None
             if ret or disp_this_cycle:
                 n_a, n_b = self.lab.bacteria_counts()
             if ret:

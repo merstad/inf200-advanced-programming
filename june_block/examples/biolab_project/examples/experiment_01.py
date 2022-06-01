@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 
-'''
+"""
 An minimal example of a BioLab simulation experiment.
-'''
+"""
 
 from biolab.simulation import Sim
 

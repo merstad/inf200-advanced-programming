@@ -33,6 +33,7 @@ class TestAgingCalls:
         d = Dish(n_a, n_b)
         d.aging()
 
+        # noinspection PyUnresolvedReferences
         assert Bacteria.ages.call_count == n_a + n_b
 
     def test_dish_ages_callers(self, mocker):
@@ -48,6 +49,7 @@ class TestAgingCalls:
         # each element of the list is a tuple: (positional_args, kwargs)
         # ages() takes only self as positional arg, so we are only
         # interested in those
+        # noinspection PyUnresolvedReferences
         args = Bacteria.ages.call_args_list
         pos_args, kwargs = zip(*args)
 
