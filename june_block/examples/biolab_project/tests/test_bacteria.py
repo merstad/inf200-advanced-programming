@@ -119,14 +119,14 @@ def test_bact_death_z_test(set_params):
     """
 
     random.seed(SEED)
-    n = 100
+    num_tries = 100
     p = Bacteria.get_params()['p_death']  # obtain parameter set by fixture
 
     b = Bacteria()
-    n = sum(b.dies() for _ in range(n))  # True == 1, False == 0
+    num_survivors = sum(b.dies() for _ in range(num_tries))  # True == 1, False == 0
 
-    mean = n * p
-    var = n * p * (1 - p)
-    Z = (n - mean) / math.sqrt(var)
+    mean = num_tries * p
+    var = num_tries * p * (1 - p)
+    Z = (num_survivors - mean) / math.sqrt(var)
     phi = 2 * stats.norm.cdf(-abs(Z))
     assert phi > ALPHA
