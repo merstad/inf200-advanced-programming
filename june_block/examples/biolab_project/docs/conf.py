@@ -18,9 +18,12 @@ autoclass_content = 'both'
 # -- Project information -----------------------------------------------------
 
 project = 'BioLab'
-copyright = '2021, Hans Ekkehard Plesser'
+copyright = '2022, Hans Ekkehard Plesser'
 author = 'Hans Ekkehard Plesser'
+
+# The full version, including alpha/beta/rc tags
 release = '0.1'
+
 
 # -- General configuration ---------------------------------------------------
 
@@ -56,7 +59,6 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+latex_elements = {'papersize': 'a4paper'}
 
 # -- Extension configuration -------------------------------------------------
-
-latex_elements = {'papersize': 'a4paper'}
